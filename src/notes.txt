@@ -1,0 +1,17 @@
+
+notrmal html control can't give the validation.
+
+
+
+
+1. i want to convert html control into angular control
+   ngModel
+
+2. then based on that i can give the validation for the control
+
+
+
+ng-untouched ->
+
+ng-pristine --> which represents the pristine 
+ng-dirty    -> which represend the dirty 
