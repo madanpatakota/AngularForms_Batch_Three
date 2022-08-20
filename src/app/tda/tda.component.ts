@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-tda',
@@ -12,8 +13,23 @@ export class TDAComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  evtSubmit(CompanyName:any){
-    console.log(CompanyName)
+  @ViewChild("form") vcForm : NgForm;
+
+   yourdetails = { compname : "" , companyphonenumber:""};
+  evtSubmit(compDetails:NgForm){
+    console.log(compDetails)
+
+
+    this.yourdetails.compname =  compDetails.controls['companyEmail'].value;
+    this.yourdetails.companyphonenumber = compDetails.controls['companyphonenumber'].value
+
+  }
+
+  evtDefaultData(){
+      this.vcForm.setValue({
+        "companyEmail" :  "sample@firstam.com",
+        "companyphonenumber" :  7204185064
+      })
   }
 
 }

@@ -15,3 +15,31 @@ ng-untouched ->
 
 ng-pristine --> which represents the pristine 
 ng-dirty    -> which represend the dirty 
+
+
+
+disabled 
+readonly
+selected
+
+
+
+
+required
+email
+minlength   = 3
+maxlength   = 10 
+pattern     = [atoz]  ----> mobile pattern
+
+
+myownattributevalidation ---> we can doth atoz
+
+
+
+
+
+
+<input type="text" disabled />  
+<input type="text" required />  you should enter the value.
+                                in case if you wo't give it will become as a invalid
+
