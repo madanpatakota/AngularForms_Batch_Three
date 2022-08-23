@@ -1,83 +1,141 @@
-<div class="container" 
-     style="margin-top: 10px ; margin-right:50px; padding:50px">
-    <div>
-        <h2>User Form</h2>
-    </div>
+<div
+  class="container"
+  style="margin-top: 10px; margin-right: 50px; padding: 50px"
+>
+  <div>
+    <h2>User Form</h2>
+  </div>
   <form (ngSubmit)="evtSubmit(form)" ngForm #form="ngForm">
-    <div class="form-group row" style="margin-top:10px">
-      <label class="col-sm-1 col-form-label">Email *</label>
+    <!-- Email -->
+    <div class="form-group row" style="margin-top: 10px">
+      <label class="col-sm-2 col-form-label">Email *</label>
       <div class="col-sm-4">
-        <input type="text"
-         name="companyEmail" 
-         class="form-control" 
-         ngModel 
-         #companyEmail = ngModel
-         placeholder="Enter the companyName email"
-         required
-         minlength="5"
-         email
-         />
-         <small
+        <input
+          type="text"
+          name="companyEmail"
+          class="form-control"
+          ngModel
+          #companyEmail="ngModel"
+          placeholder="Enter the companyName email"
+          required
+          minlength="5"
+          email
+        />
+        <small
           *ngIf="companyEmail.errors?.['required']
-          && companyEmail.touched" 
-         style="color:#9d3b3b"
-          class="form-text">
-          Please Enter the companyName email</small>
-          <small
+          && companyEmail.touched"
+          style="color: #9d3b3b"
+          class="form-text"
+        >
+          Please Enter the companyName email</small
+        >
+        <small
           *ngIf="companyEmail.errors?.['minlength']
-          && companyEmail.touched" 
-         style="color:#9d3b3b"
-          class="form-text">
-          Please Enter the atleaset 5 charcters</small>
+          && companyEmail.touched"
+          style="color: #9d3b3b"
+          class="form-text"
+        >
+          Please Enter the atleaset 5 charcters</small
+        >
 
-          <small
+        <small
           *ngIf="companyEmail.errors?.['email']
-          && companyEmail.touched" 
-         style="color:#9d3b3b"
-          class="form-text">
-          Please Enter the your office email id</small>
+          && companyEmail.touched"
+          style="color: #9d3b3b"
+          class="form-text"
+        >
+          Please Enter the your office email id</small
+        >
       </div>
       <!-- mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$";  -->
-      <div class="form-group row" style="margin-top:10px">
-        <label class="col-sm-1 col-form-label">Phone *</label>
+      <div class="form-group row" style="margin-top: 10px">
+        <label class="col-sm-2 col-form-label">Phone *</label>
         <div class="col-sm-4">
-          <input type="text"
-           name="companyphonenumber" 
-           class="form-control" 
-           ngModel 
-           #companyphonenumber = ngModel
-           placeholder="Enter the Company mobile number"
-           required
-           pattern="[0-9]{10}"
-           />
-           <small
+          <input
+            type="text"
+            name="companyphonenumber"
+            class="form-control"
+            ngModel
+            #companyphonenumber="ngModel"
+            placeholder="Enter the Company mobile number"
+            required
+            pattern="[0-9]{10}"
+          />
+          <small
             *ngIf="companyphonenumber.errors?.['required']
-            && companyphonenumber.touched" 
-           style="color:#9d3b3b"
-            class="form-text">
-            Please Enter the mobile number</small>
-            <small
+            && companyphonenumber.touched"
+            style="color: #9d3b3b"
+            class="form-text"
+          >
+            Please Enter the mobile number</small
+          >
+          <small
             *ngIf="companyphonenumber.errors?.['pattern']
-            && companyphonenumber.touched" 
-           style="color:#9d3b3b"
-            class="form-text">
-            Please Enter the Valild mobile number</small>
+            && companyphonenumber.touched"
+            style="color: #9d3b3b"
+            class="form-text"
+          >
+            Please Enter the Valild mobile number</small
+          >
+        </div>
+      </div>
+
+      <div class="form-group row" style="margin-top: 10px">
+        <label class="col-sm-2 col-form-label"> Only Company Email *</label>
+        <div class="col-sm-4">
+          <input
+            type="text"
+            name="firstamComanyEmailID"
+            class="form-control"
+            ngModel
+            #firstamComanyEmailID="ngModel"
+            placeholder="Enter the companyName email. (Ex : madan@firstam.com)"
+            required
+            email
+            appFirstamEmail
+            
+          />
+          <small
+            *ngIf="firstamComanyEmailID.errors?.['required']
+          && firstamComanyEmailID.touched"
+            style="color: #9d3b3b"
+            class="form-text"
+          >
+            Please Enter the email</small
+          >
+          <small
+            *ngIf="firstamComanyEmailID.errors?.['email']
+          && firstamComanyEmailID.touched"
+            style="color: #9d3b3b"
+            class="form-text"
+          >
+            Please Enter the email Format</small
+          >
+          <small
+          *ngIf="firstamComanyEmailID.
+          errors?.['isFirstamRequired']
+          && firstamComanyEmailID.touched" 
+         style="color:#9d3b3b"
+          class="form-text">
+          Please Enter the only firstam emailID</small>
         </div>
       </div>
     </div>
-    <div class="form-group row" style="margin-top:10px">
-      <div class="col-sm-1"></div>
-      <div class="col-sm-4">
-        <button class="btn btn-primary" type="submit" [disabled]="form.invalid" >Submit</button> |
-        <button class="btn btn-danger" (click)="evtDefaultData()">Default</button>
 
+    <div class="form-group row" style="margin-top: 10px">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-4">
+        <button class="btn btn-primary" type="submit">
+          Submit
+        </button>
+        |
+        <button class="btn btn-danger" (click)="evtDefaultData()">
+          Default
+        </button>
       </div>
     </div>
 
-
     YOur details are :
-     {{yourdetails.compname}} -- {{yourdetails.companyphonenumber}}
-
-
+    {{ yourdetails.compname }} -- {{ yourdetails.companyphonenumber }}
   </form>
 </div>

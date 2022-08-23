@@ -39,7 +39,29 @@ myownattributevalidation ---> we can doth atoz
 
 
 
+
+
+
+
+
+
 <input type="text" disabled />  
 <input type="text" required />  you should enter the value.
                                 in case if you wo't give it will become as a invalid
+
+
+terminology
+
+
+formcontrol     ---> control(textbox,select, rsio,check)
+formgroup       ---> collection of formcontols   ---- { }
+formarray       ---> collection of formgroups    ---- [ ]    
+
+
+
+
+
+
+
+
 
