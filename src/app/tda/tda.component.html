@@ -9,6 +9,7 @@
     <!-- Email -->
     <div class="form-group row" style="margin-top: 10px">
       <label class="col-sm-2 col-form-label">Email *</label>
+
       <div class="col-sm-4">
         <input
           type="text"
@@ -93,7 +94,6 @@
             required
             email
             appFirstamEmail
-            
           />
           <small
             *ngIf="firstamComanyEmailID.errors?.['required']
@@ -112,12 +112,35 @@
             Please Enter the email Format</small
           >
           <small
-          *ngIf="firstamComanyEmailID.
+            *ngIf="firstamComanyEmailID.
           errors?.['isFirstamRequired']
-          && firstamComanyEmailID.touched" 
-         style="color:#9d3b3b"
-          class="form-text">
-          Please Enter the only firstam emailID</small>
+          && firstamComanyEmailID.touched"
+            style="color: #9d3b3b"
+            class="form-text"
+          >
+            Please Enter the only firstam emailID</small
+          >
+        </div>
+      </div>
+    </div>
+
+    <div ngModelGroup="SecurityGroup" #security="ngModelGroup">
+      <div class="form-group row" style="margin-top: 10px">
+        <label class="col-sm-2 col-form-label"> Security Comments *</label>
+        <div class="col-sm-4">
+          <textarea rows="3"
+            type="text"
+            name="securityName"
+            class="form-control"
+            ngModel
+            #secuityComment="ngModel"
+            required
+          ></textarea>
+          <small 
+          *ngIf="secuityComment.touched
+           && secuityComment.errors?.['required']">
+           Please enter the securty answer
+          </small>
         </div>
       </div>
     </div>
@@ -125,9 +148,7 @@
     <div class="form-group row" style="margin-top: 10px">
       <div class="col-sm-2"></div>
       <div class="col-sm-4">
-        <button class="btn btn-primary" type="submit">
-          Submit
-        </button>
+        <button class="btn btn-primary" type="submit">Submit</button>
         |
         <button class="btn btn-danger" (click)="evtDefaultData()">
           Default

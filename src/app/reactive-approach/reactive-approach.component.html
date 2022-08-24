@@ -36,6 +36,56 @@
         >
           Please Enter the Atleast 5 charcters</small
         >
+
+        <small
+          *ngIf="
+          companyFormGroup.get('companyEmail').errors?.['email']
+          && 
+          companyFormGroup.get('companyEmail').touched"
+          style="color: #9d3b3b"
+          class="form-text"
+        >
+          Please Enter the valid Email</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group row" style="margin-top: 10px">
+      <label class="col-sm-2 col-form-label">City</label>
+      <div class="col-sm-4">
+        <select class="form-control" formControlName="cityName">
+          <option [value]="item.ID" *ngFor="let item of cityNames">
+            {{ item.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <!-- {} -->
+    <div 
+      formGroupName="security"
+      class="form-group row"
+      style="margin-top: 10px;background-color: #efdbdb;"
+    >
+      <label class="col-sm-2 col-form-label">Security *</label>
+      <div class="col-sm-4">
+        <textarea
+          type="text"
+          name="securityAnswer"
+          class="form-control"
+          placeholder="Enter the Security Answer"
+          formControlName="securityAnswer"
+        >
+        </textarea>
+        <small
+          *ngIf="
+        companyFormGroup.get('security.securityAnswer').errors?.['required']
+        && companyFormGroup.get('security.securityAnswer').touched"
+          style="color: #9d3b3b"
+          class="form-text"
+        >
+          Please Enter the security Anwser</small
+        >
       </div>
     </div>
 
