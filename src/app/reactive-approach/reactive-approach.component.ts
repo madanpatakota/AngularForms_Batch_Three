@@ -13,8 +13,10 @@ export class ReactiveApproachComponent implements OnInit {
   ngOnInit(): void {
         this.companyFormGroup = new FormGroup({
              'companyEmail' : new FormControl(null,
-              [ Validators.required,
-                Validators.minLength(5)
+              [ 
+                Validators.required,
+                Validators.minLength(5),
+                
               ])
         })
   }
