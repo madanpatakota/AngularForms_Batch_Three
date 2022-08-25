@@ -62,10 +62,10 @@
     </div>
 
     <!-- {} -->
-    <div 
+    <div
       formGroupName="security"
+      style="margin-top: 10px"
       class="form-group row"
-      style="margin-top: 10px;background-color: #efdbdb;"
     >
       <label class="col-sm-2 col-form-label">Security *</label>
       <div class="col-sm-4">
@@ -95,6 +95,79 @@
         <button class="btn btn-primary" type="submit" (click)="evtSubmit()">
           Submit
         </button>
+      </div>
+    </div>
+  </form>
+
+  <hr />
+
+  <form [formGroup]="CustomerForm">
+    <div formArrayName="CustomerDetails">
+      <div
+        class="form-group"
+        *ngFor="let item of customerFormArray.controls; let $index = index"
+      >
+        {{ $index }}
+        <div formGroupName="{{ $index }}" class="col-sm-12 row">
+          <div class="col-sm-4">
+            <input
+              type="text"
+              class="form-control"
+              [formControlName]="'ContactName'"
+            />
+          </div>
+          <div class="col-sm-4">
+            <input
+              type="text"
+              class="form-control"
+              [formControlName]="'OrderName'"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 10px">
+      <input
+        type="button"
+        (click)="evtAdd()"
+        value="ADD"
+        class="btn btn-primary"
+      />
+    </div>
+  </form>
+
+  <hr>
+
+  <form [formGroup]="CustomValidationForm">
+    <div class="form-group row" style="margin-top: 10px">
+      <label class="col-sm-2 col-form-label"> Valid Email *</label>
+      <div class="col-sm-4">
+        <input
+          type="text"
+          name="validEmail"
+          class="form-control"
+          placeholder="Enter the ValidEmail Name"
+          formControlName="validEmail"
+        />
+        <small
+          *ngIf="
+          CustomValidationForm.get('validEmail').errors?.['required']
+          && CustomValidationForm.get('validEmail').touched"
+          style="color: #9d3b3b"
+          class="form-text"
+        >
+          Please Enter your email</small
+        >
+        <small
+          *ngIf="
+          CustomValidationForm.get('validEmail').errors?.['isnotGmail']
+          && CustomValidationForm.get('validEmail').touched"
+          style="color: #9d3b3b"
+          class="form-text"
+        >
+          Please Enter your only gmail</small
+        >
       </div>
     </div>
   </form>
